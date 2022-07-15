@@ -8,8 +8,7 @@ const Form = (props) => {
     const onFormSubmit = (event) => {
         event.preventDefault();
         props.setTodo([...props.todo, {id: uuidv4(), title: props.input, completed: false}]);
-        props.setInput("")
-    }
+        }
 
     return (
         <form className="Form" onSubmit={onFormSubmit}>
@@ -20,7 +19,7 @@ const Form = (props) => {
                 required
                 onChange={inputChange}
                 />
-            <button type="submit" className="Button">Add</button>
+            <button type="button" className="Button">Add</button>
         </form>
     )
 }

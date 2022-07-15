@@ -11,7 +11,10 @@ function App(){
 
   const [input, setInput] = useState("");
   const [todo, setTodo] = useState([]);
-  const [status, setStatus] = useState (0);
+  const [done, setDone] = useState([]);
+  const [doing, setDoing] = useState([]);
+
+console.log(todo);
 
   return(
     <div>
@@ -25,17 +28,48 @@ function App(){
             setInput={setInput}
             todo={todo}
             setTodo={setTodo}
+            doing={doing}
+            setDoing={setDoing}
+            done={done}
+            setDone={setDone}
           />
         </div>
         <div className='Container-2'>
           <div>
-          <ToDoList status={status} setStatus={setStatus} todo={todo} setTodo={setTodo}/>
+            <ToDoList 
+              input={input}
+              setInput={setInput}
+              todo={todo} 
+              setTodo={setTodo}
+              doing={doing}
+              setDoing={setDoing}
+              done={done}
+              setDone={setDone}
+            />
           </div>
           <div>
-          <DoingList status={status} setStatus={setStatus} todo={todo} setTodo={setTodo}/>
+            <DoingList 
+              input={input}
+              setInput={setInput}
+              todo={todo} 
+              setTodo={setTodo}
+              doing={doing}
+              setDoing={setDoing}
+              done={done}
+              setDone={setDone}
+            />
           </div>
           <div>
-            <DoneList status={status} setStatus={setStatus} todo={todo} setTodo={setTodo}/>
+            <DoneList
+              input={input}
+              setInput={setInput}
+              todo={todo} 
+              setTodo={setTodo}
+              doing={doing}
+              setDoing={setDoing}
+              done={done}
+              setDone={setDone}
+            />
           </div>
         </div>
       </div>

@@ -1,25 +1,28 @@
+import {v4 as uuidv4} from "uuid";
+
 const ToDoList= (props) => {
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+        props.setDoing([...props.doing, {id: uuidv4(), title: props.input, completed: false}])
+        }
+
     return (
-        <div>
             <div className="ToDo">
                 <h1>To do</h1>
-                {(props.status == 0) ?
-                <div>
                     {props.todo.map((toDo) => (
-                        <div className="Container-3">
+                        <form className="Container-3" onSubmit={onFormSubmit}>
                             <li key={toDo.id}>
                                 <input 
+                                    className="Values"
                                     type="text" 
                                     value={toDo.title} 
-                                    onChange={(event) => event.preventDefault()} />
+                                />
                             </li>
-                            <button onClick={props.setStatus(1)}>edit</button>
-                        </div>
+                            <button className="red">doing</button>
+                        </form>
                     ))}
-                </div> : ""     
-            }
             </div>
-        </div>
     )
 }
 
